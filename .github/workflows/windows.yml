@@ -12,11 +12,9 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - name: WGET
-        uses: wei/wget@v1.1.1
-
       - name: Install PBuild
-        run: wget https://github.com/valkarias/Pa/archive/master.zip -O Pa.zip
+        cd %homepath%
+        run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/Pa/archive/master.zip" -OutFile "PBuild.zip"
         
       - name: Unzip
         run: |
