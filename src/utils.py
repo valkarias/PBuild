@@ -103,19 +103,13 @@ def get_latest_release_name():
 
     req_class = Request(url, headers={"Accept": "application/json"})
     req = urlopen(req_class)
-    trailing = [
-        "-windows-latest",
-        "-ubuntu-latest",
-        "-macOS-latest"
-    ]
     if req.status == 200:
         data = json.loads(req.read().decode())
-        release_name = data[0]["name"]
-        for i in trailing:
-            if i in release_name:
-                return release_name.replace(i, "")
+        #Get only the first asset. Others hold same date data.
+        release_name = data[0]["assets"][0]["name"]
+        return release_name.strip("-windows-latest.zip")
     else:
-        click.secho(f"Could not get the latest release from the repository", fg='red')
+        click.secho(f"Could not get the latest release version from the repository", fg='red')
         click.echo(f"-> request status code: {req.status}")
 
     return False
