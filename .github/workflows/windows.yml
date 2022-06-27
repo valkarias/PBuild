@@ -47,7 +47,6 @@ jobs:
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.BIG_SECRET_NAME }}"
           automatic_release_tag: latest
           title: "${{ steps.date.outputs.date }}a-windows-latest"
 
