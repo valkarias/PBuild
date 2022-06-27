@@ -41,7 +41,7 @@ jobs:
       
       - name: Zip
         run: |
-          cd dist\src
+          cd dist
           powershell Compress-Archive pbuild.exe PBuild_windows-latest.zip
 
       - name: Tag
