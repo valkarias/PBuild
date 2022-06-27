@@ -12,15 +12,12 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - name: CD
-        run:  cd %homepath%
-
       - name: Install PBuild
         run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/Pa/archive/master.zip" -OutFile "PBuild.zip"
         
       - name: Unzip
         run: |
-          powershell Expand-Archive -Path PBuild.zip -DestinationPath %homepath%
+          powershell Expand-Archive -Path PBuild.zip -DestinationPath PBuild
 
       - name: Run test
         run:
