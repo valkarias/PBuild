@@ -44,7 +44,8 @@ jobs:
       
       - name: Zip
         run: |
-          cd src/dist
+          echo "$PWD"
+          cd PBuild/src/dist
           zip "PBuild_${{ matrix.os }}.zip" pbuild
 
       - name: Tag
