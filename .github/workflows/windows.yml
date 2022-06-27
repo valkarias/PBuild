@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: Install PBuild
         run: |
-        cd %homepath%
-        powershell Invoke-WebRequest -Uri "https://github.com/valkarias/Pa/archive/master.zip" -OutFile "PBuild.zip"
+          cd %homepath%
+          powershell Invoke-WebRequest -Uri "https://github.com/valkarias/Pa/archive/master.zip" -OutFile "PBuild.zip"
         
       - name: Unzip
         run: |
