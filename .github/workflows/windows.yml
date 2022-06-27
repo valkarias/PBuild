@@ -50,7 +50,7 @@ jobs:
           repo_token: "${{ secrets.BIG_SECRET_NAME }}"
           automatic_release_tag: windows-latest
           title: "${{ steps.date.outputs.date }}a-windows-latest"
-          files: PBuild/PBuild/dist/PBuild_windows-latest.zip
+          files: PBuild/dist/PBuild_windows-latest.zip
 
   ###########
 
