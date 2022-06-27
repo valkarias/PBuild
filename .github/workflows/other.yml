@@ -39,7 +39,7 @@ jobs:
       
       - name: Freeze CLI
         run: |
-          cd PBuild
+          cd PBuild/src
           pyinstaller --onefile --hidden-import utils.py pbuild.py
       
       - name: Zip
