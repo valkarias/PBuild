@@ -44,7 +44,7 @@ jobs:
       
       - name: Zip
         run: |
-          cd dist
+          cd PBuild/src/dist
           zip "PBuild_${{ matrix.os }}.zip" pbuild
 
       - name: Tag
@@ -61,7 +61,7 @@ jobs:
         with:
           upload_url: https://uploads.github.com/repos/valkarias/PBuild/releases/70667137/assets{?name,label}
           release_id: 70667137
-          asset_path: Pbuild/src/dist/PBuild_${{ matrix.os }}.zip
+          asset_path: PBuild/Pbuild/src/dist/PBuild_${{ matrix.os }}.zip
           asset_name: "${{ steps.date.outputs.date }}a-${{ matrix.os }}.zip"
           asset_content_type: application/zip
 
