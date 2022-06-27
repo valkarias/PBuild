@@ -12,10 +12,6 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - uses: actions/checkout@v2
-        with:
-            fetch-depth: '0'
-    
       - name: Python 3.10
         uses: actions/setup-python@v2
         with:
@@ -27,14 +23,14 @@ jobs:
           platform: x64
       
       - name: Test download
-      - run: |
+        run: |
           python pbuild.py download
           # TEST
           cd %homepath%
           cd Pa\Pa-master
 
       - name: Test build
-      - run: |
+        run: |
           #RESET
           cd %homepath%
           #
