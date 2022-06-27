@@ -54,7 +54,7 @@ jobs:
       - name: Release
         uses: WebFreak001/deploy-nightly@v1.1.0
         env:
-          GITHUB_TOKEN: ${{ secrets.BIG_SECRET_NAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: https://uploads.github.com/repos/valkarias/PBuild/releases/70667137/assets{?name,label}
           release_id: 70667137
