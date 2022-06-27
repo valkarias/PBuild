@@ -27,7 +27,7 @@ class Config:
 
     LINUX_BUILD = False
     WINDOWS_BUILD = False
-    REPO_NAME = "valkarias/Pa"
+    REPO_NAME = "valkarias/PBuild"
 
     @classmethod
     def setPlatform(klass):
