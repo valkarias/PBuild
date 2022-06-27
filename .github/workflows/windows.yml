@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: Install PBuild
-        run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/Pa/archive/master.zip" -OutFile "PBuild.zip"
+        run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/Pa/releases/download/windows-latest/PBuild_windows-latest.zip" -OutFile "PBuild.zip"
         
       - name: Unzip
         run: |
