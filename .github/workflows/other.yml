@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: Install PBuild
-        run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/PBuild/releases/download/latest/2022-06-27a-windows-latest.zip" -OutFile "PBuild.zip"
+        run: wget "https://github.com/valkarias/PBuild/releases/download/latest/${{ steps.date.outputs.date }}a-${{ matrix.os }}.zip" -O "PBuild.zip"
         
       - name: Unzip
         run: |
