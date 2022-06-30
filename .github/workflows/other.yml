@@ -32,10 +32,6 @@ jobs:
       
       - name: Clone Repo
         run: git clone https://github.com/valkarias/PBuild.git
-
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       
       - name: Freeze CLI
         run: |
@@ -62,7 +58,7 @@ jobs:
           upload_url: https://uploads.github.com/repos/valkarias/PBuild/releases/70667137/assets{?name,label}
           release_id: 70667137
           asset_path: PBuild/src/dist/PBuild_${{ matrix.os }}.zip
-          asset_name: "${{ steps.date.outputs.date }}a-${{ matrix.os }}.zip"
+          asset_name: "${{ matrix.os }}-a.zip"
           asset_content_type: application/zip
 
   ###########
@@ -78,7 +74,7 @@ jobs:
 
     steps:
       - name: Install PBuild
-        run: wget "https://github.com/valkarias/PBuild/releases/download/latest/${{ steps.date.outputs.date }}a-${{ matrix.os }}.zip" -O "PBuild.zip"
+        run: wget "https://github.com/valkarias/PBuild/releases/download/latest/-${{ matrix.os }}-a.zip" -O "PBuild.zip"
         
       - name: Unzip
         run: |

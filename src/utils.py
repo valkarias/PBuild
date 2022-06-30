@@ -1,3 +1,5 @@
+from datetime import datetime
+from time import strptime
 import click
 import subprocess, os, shutil
 import platform
@@ -106,8 +108,9 @@ def get_latest_release_name():
     if req.status == 200:
         data = json.loads(req.read().decode())
         #Get only the first asset. Others hold same date data.
-        release_name = data[0]["assets"][0]["name"]
-        return release_name.strip("-windows-latest.zip")
+        date_ = data[0]["assets"][0]["updated_at"]
+        date_obj = datetime.strptime(date_, "%Y-%m-%dT%H:%M:%SZ")
+        return f"{date_obj.year}-{date_obj.month}-{date_obj.day}a"
     else:
         click.secho(f"Could not get the latest release version from the repository", fg='red')
         click.echo(f"-> request status code: {req.status}")

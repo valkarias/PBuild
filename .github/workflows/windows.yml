@@ -29,10 +29,6 @@ jobs:
       
       - name: Clone Repo
         run: git clone https://github.com/valkarias/PBuild.git
-
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       
       - name: Freeze CLI
         run: |
@@ -59,7 +55,7 @@ jobs:
           upload_url: https://uploads.github.com/repos/valkarias/PBuild/releases/70667137/assets{?name,label}
           release_id: 70667137
           asset_path: PBuild\src\dist\PBuild_windows-latest.zip
-          asset_name: "${{ steps.date.outputs.date }}a-windows-latest.zip"
+          asset_name: "windows-latest-a.zip"
           asset_content_type: application/zip
 
   ###########
@@ -71,7 +67,7 @@ jobs:
     
     steps:
       - name: Install PBuild
-        run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/PBuild/releases/download/latest/2022-06-27a-windows-latest.zip" -OutFile "PBuild.zip"
+        run: powershell Invoke-WebRequest -Uri "https://github.com/valkarias/PBuild/releases/download/latest/windows-latest-a.zip" -OutFile "PBuild.zip"
         
       - name: Unzip
         run: |
